@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: PlayerMovement
   m_EditorClassIdentifier: 
   Speed: 10
-  AngularSpeed: 600
+  AngularSpeed: 1200
+  JumpHeight: 4
+  Acceleration: 2
