@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerMovementData", menuName = "Data Components/PlayerMovementComponent", order = 1)]
 public class PlayerMovement : ScriptableObject
 {
-    [Range(0,15)]
+    [Range(0,60)]
     public float Speed = 5;
     [Range(0, 1500)]
     public float AngularSpeed;

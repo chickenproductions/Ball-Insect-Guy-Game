@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7ae7573e011044787c8b1bc0df21a5, type: 3}
   m_Name: PlayerMovement
   m_EditorClassIdentifier: 
-  Speed: 15
-  AngularSpeed: 1200
-  JumpHeight: 16
-  Acceleration: 2
-  JumpCheckDistance: 0.55
+  Speed: 35
+  AngularSpeed: 360
+  JumpHeight: 20
+  Acceleration: 4
+  JumpCheckDistance: 0.6
   jumpDelay: 1
   jumpGraviyUp: 2
   jumpGravityDown: 2.5

@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -600405401
+  m_SortingLayerID: 75671745
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b0cbd938dffd6442815950e28360b0c, type: 3}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000bd24a78f
+  m_ApplyToSortingLayers: 00000000bd24a78fc1a88204
   m_ShapePath:
   - {x: -0.6769236, y: -0.6676307, z: 0}
   - {x: -0.38000655, y: -0.8648298, z: 0}
@@ -153,7 +153,7 @@ MonoBehaviour:
   - {x: -0.8549069, y: -0.41781545, z: 0}
   m_ShapePathHash: 506951119
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1292
+  m_InstanceId: -1198
 --- !u!1 &1374436408577007507
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -600405401
+  m_SortingLayerID: 75671745
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b0cbd938dffd6442815950e28360b0c, type: 3}
@@ -284,7 +284,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -329,6 +329,8 @@ MonoBehaviour:
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 256
+  leftCheck: 0
+  rightCheck: 0
 --- !u!114 &5867075262130458212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +497,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -600405401
+  m_SortingLayerID: 75671745
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ecb50b6edefe8a44c8d6f71f3927bcb4, type: 3}
