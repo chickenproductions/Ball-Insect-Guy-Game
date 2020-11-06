@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6822208705377563300}
   - component: {fileID: 6822208705377563302}
-  - component: {fileID: 6822208705377563303}
+  - component: {fileID: 5418618110211657470}
+  - component: {fileID: 765590439599331726}
+  - component: {fileID: 8524622957321120147}
   m_Layer: 0
   m_Name: EnemyMovementTest
   m_TagString: Untagged
@@ -59,7 +61,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.44}
   m_EdgeRadius: 0
---- !u!50 &6822208705377563303
+--- !u!50 &5418618110211657470
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -80,6 +82,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &765590439599331726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822208705377563301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 1
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &8524622957321120147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822208705377563301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ad5082070f3e6439d4006ee65b6ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTemp: {fileID: 0}
+  speed: 8
+  nextpointDst: 3
 --- !u!1 &6822208705696240732
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6822208706713615197}
   - component: {fileID: 6822208706713615196}
+  - component: {fileID: 765590439599331723}
   m_Layer: 0
   m_Name: Line
   m_TagString: Untagged
@@ -183,7 +229,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b0cbd938dffd6442815950e28360b0c, type: 3}
-  m_Color: {r: 0.9811321, g: 0.55906016, b: 0.55906016, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.38589668, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,3 +239,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &765590439599331723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822208706713615194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000bd24a78fc1a88204
+  m_ShapePath:
+  - {x: -0.5, y: -0.493674, z: 0}
+  - {x: 0.5, y: -0.493674, z: 0}
+  - {x: 0.5, y: 0.5032544, z: 0}
+  - {x: -0.5, y: 0.5032544, z: 0}
+  m_ShapePathHash: 383351021
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -8574
