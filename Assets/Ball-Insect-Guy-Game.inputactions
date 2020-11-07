@@ -272,31 +272,9 @@
                 },
                 {
                     "name": "",
-                    "id": "91d9864a-aca0-44a2-991d-e1c4050bdd16",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "28bbd690-6f03-4204-8d8d-bf770defd094",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c138f920-24e6-4303-b054-d6d2cf7b9d93",
-                    "path": "<DualShockGamepad>/leftStick/up",
-                    "interactions": "Press",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",

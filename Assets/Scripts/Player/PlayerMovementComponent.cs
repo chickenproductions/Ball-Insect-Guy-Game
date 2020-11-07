@@ -26,11 +26,11 @@ public class PlayerMovementComponent : MonoBehaviour
 
     public bool leftCheck, rightCheck;
     
-    RaycastHit2D LeftCheckCast;
-    
+    RaycastHit2D LeftCheckCast;    
     RaycastHit2D RightCheckCast;
-
     RaycastHit2D BottomCheckCast;
+
+    public float RotationZeroSpeed = 5;
 
     void Awake()
     {
@@ -66,19 +66,14 @@ public class PlayerMovementComponent : MonoBehaviour
         Acceleration =Mathf.Lerp(Acceleration, inputx.x, playerMovement.Acceleration * Time.deltaTime);
 
         float Speed = playerMovement.Speed;
-
         float AngularSpeed = playerMovement.AngularSpeed;
 
-        BottomCheckCast = Physics2D.CircleCast(transform.position, 0.8f, -transform.up,playerMovement.JumpCheckDistance,groundCheckMask);
-        
-        LeftCheckCast = Physics2D.Raycast(transform.position, -transform.right, 2f, groundCheckMask);
-        
+        BottomCheckCast = Physics2D.CircleCast(transform.position, 0.8f, -transform.up,playerMovement.JumpCheckDistance,groundCheckMask);        
+        LeftCheckCast = Physics2D.Raycast(transform.position, -transform.right, 2f, groundCheckMask);        
         RightCheckCast = Physics2D.Raycast(transform.position, transform.right, 2f, groundCheckMask);
         
         leftCheck = LeftCheckCast;
-        
         rightCheck = RightCheckCast;
-
         ground = BottomCheckCast;
 
         MoveAndTurn(Acceleration, Speed, AngularSpeed);
@@ -100,14 +95,17 @@ public class PlayerMovementComponent : MonoBehaviour
         {
             Grounded = true;
         }
-        if (Input.GetKey(KeyCode.Q))
+        Vector2 desiredUpVec;
+        
+        if (Grounded)
         {
-            Debug.Log("Right" + RightCheckCast.normal);
-            Debug.Log("Left" + LeftCheckCast.normal);
-            transform.up = LeftCheckCast.normal;
+            desiredUpVec = BottomCheckCast.normal;
         }
-                     
-        transform.up = BottomCheckCast.normal;
+        else
+        {
+            desiredUpVec = new Vector2(0, 1);
+        }
+        transform.up = Vector2.Lerp(transform.up,desiredUpVec, RotationZeroSpeed * Time.deltaTime);
 
     }
 
@@ -120,7 +118,7 @@ public class PlayerMovementComponent : MonoBehaviour
     {
 
        
-            PlayerArt.transform.Rotate(0, 0,  (rb.velocity.normalized.x * -AngularSpeed + rb.velocity.normalized.y * -AngularSpeed) * Time.deltaTime);
+            PlayerArt.transform.Rotate(0, 0, (-inputX * playerMovement.AngularSpeed * Time.deltaTime));
 
             Vector2 forward = transform.right;
             Vector2 down = -transform.up;
@@ -145,7 +143,6 @@ public class PlayerMovementComponent : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        //considering using the "ground normal" for this, so that way when the player is later on removing themselves from the wall they will be able to jump off of it via that
         if (Grounded)
         {
             Vector2 UpDir = transform.up;
@@ -154,7 +151,11 @@ public class PlayerMovementComponent : MonoBehaviour
                        
             Grounded = false;
            
-        }         
+        }
+        else
+        {
+            return;
+        }     
     }
 
     private void OnDrawGizmos()
@@ -174,7 +175,6 @@ public class PlayerMovementComponent : MonoBehaviour
         }
 
 
-        // backward line
         if (RightCheckCast)
         {
             Gizmos.color = Color.white;

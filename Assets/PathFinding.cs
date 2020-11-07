@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Diagnostics.Tracing;
+using System;
 
-public class EnemyMovment : MonoBehaviour
+public class PathFinding : MonoBehaviour
 {
     public Transform TargetTemp;
     public float speed;
     public float nextpointDst;
-
+    [NonSerialized]public Vector2 movementspeed;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -57,7 +59,7 @@ public class EnemyMovment : MonoBehaviour
         }
         
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 movementspeed = direction * speed * Time.deltaTime;
+        movementspeed = direction * speed * Time.deltaTime;
         
         rb.velocity += movementspeed;
         
