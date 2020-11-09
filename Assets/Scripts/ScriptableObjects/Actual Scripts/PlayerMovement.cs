@@ -20,6 +20,9 @@ public class PlayerMovement : ScriptableObject
     public float jumpGraviyUp; 
     [Range(1, 5)]
     public float jumpGravityDown;
+    
+    public AnimationCurve SidewaysMapping;   
+    public AnimationCurve BottomMapping;
     // Start is called before the first frame update
     void Start()
     {

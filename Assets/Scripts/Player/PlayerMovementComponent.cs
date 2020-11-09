@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
@@ -29,6 +30,9 @@ public class PlayerMovementComponent : MonoBehaviour
     RaycastHit2D LeftCheckCast;    
     RaycastHit2D RightCheckCast;
     RaycastHit2D BottomCheckCast;
+
+    float ControlDot;
+    public float ControlDotRemap;
 
     public float RotationZeroSpeed = 5;
 
@@ -63,20 +67,18 @@ public class PlayerMovementComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Acceleration =Mathf.Lerp(Acceleration, inputx.x, playerMovement.Acceleration * Time.deltaTime);
+        ControlDotRemap = Mathf.Round(ControlDot) * playerMovement.SidewaysMapping.Evaluate(Mathf.Abs(ControlDot));
 
         float Speed = playerMovement.Speed;
         float AngularSpeed = playerMovement.AngularSpeed;
 
-        BottomCheckCast = Physics2D.CircleCast(transform.position, 0.8f, -transform.up,playerMovement.JumpCheckDistance,groundCheckMask);        
+        BottomCheckCast = Physics2D.CircleCast(transform.position, 0.95f, -transform.up,playerMovement.JumpCheckDistance,groundCheckMask);        
         LeftCheckCast = Physics2D.Raycast(transform.position, -transform.right, 2f, groundCheckMask);        
         RightCheckCast = Physics2D.Raycast(transform.position, transform.right, 2f, groundCheckMask);
         
         leftCheck = LeftCheckCast;
         rightCheck = RightCheckCast;
         ground = BottomCheckCast;
-
-        MoveAndTurn(Acceleration, Speed, AngularSpeed);
 
         if (!ground)
         {
@@ -107,6 +109,12 @@ public class PlayerMovementComponent : MonoBehaviour
         }
         transform.up = Vector2.Lerp(transform.up,desiredUpVec, RotationZeroSpeed * Time.deltaTime);
 
+
+        ControlDot = Vector2.Dot(transform.right, inputx);
+
+        Acceleration = Mathf.Lerp(Acceleration, ControlDot, playerMovement.Acceleration * Time.deltaTime);
+
+        MoveAndTurn(Acceleration, Speed, AngularSpeed);
     }
 
     public void ParseMovement(InputAction.CallbackContext context)
@@ -122,11 +130,14 @@ public class PlayerMovementComponent : MonoBehaviour
 
             Vector2 forward = transform.right;
             Vector2 down = -transform.up;
-
+            
             rb.velocity += ((forward * Speed) * inputX) * Time.deltaTime;
-      
-
-        
+            float playerdownnormal = Vector2.Dot(transform.up, inputx);
+            if (Grounded)
+            {
+            
+            rb.velocity += (down  * Speed * Mathf.Abs( Mathf.Clamp(playerdownnormal,-1,0))) * Time.deltaTime;
+            }
     }
     
     IEnumerator GroundCheck()
@@ -190,6 +201,8 @@ public class PlayerMovementComponent : MonoBehaviour
         Gizmos.color = Color.yellow;
        
         Gizmos.DrawLine(transform.position, transform.position + -transform.up * 2);
+
+        Gizmos.DrawWireSphere( new Vector3(transform.position.x + inputx.x*3,transform.position.y + inputx.y *3,0) , 0.7f);
     }
     
     
