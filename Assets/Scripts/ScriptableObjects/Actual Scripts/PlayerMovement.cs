@@ -8,7 +8,7 @@ public class PlayerMovement : ScriptableObject
     public float Speed = 5;
     [Range(0, 1500)]
     public float AngularSpeed;
-    [Range(0, 25)]
+    [Range(0, 50)]
     public float JumpHeight = 4;
     [Range(0, 10)]
     public float Acceleration = 4;
@@ -16,9 +16,9 @@ public class PlayerMovement : ScriptableObject
     public float JumpCheckDistance = 0.8f;
     [Range(0,2)]
     public float jumpDelay;
-    [Range(1, 5)]
+    [Range(0, 5)]
     public float jumpGraviyUp; 
-    [Range(1, 5)]
+    [Range(0, 5)]
     public float jumpGravityDown;
     
     public AnimationCurve SidewaysMapping;   

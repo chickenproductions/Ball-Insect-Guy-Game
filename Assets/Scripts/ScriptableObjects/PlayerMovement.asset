@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.5
   AngularSpeed: 10
-  JumpHeight: 20
+  JumpHeight: 30
   Acceleration: 0.3
   JumpCheckDistance: 0.408
   jumpDelay: 0.05
-  jumpGraviyUp: 1.02
-  jumpGravityDown: 1.08
+  jumpGraviyUp: 1.01
+  jumpGravityDown: 1.14
   SidewaysMapping:
     serializedVersion: 2
     m_Curve:
