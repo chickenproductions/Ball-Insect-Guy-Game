@@ -1,10 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal.Internal;
-
 public class PlayerMovementComponent : MonoBehaviour
 {
     public PlayerMovement playerMovement;
@@ -16,7 +13,7 @@ public class PlayerMovementComponent : MonoBehaviour
     public GameObject PlayerArt;
    
     private Vector2 inputx;
-    
+
     public GameControls Controls;
 
     [SerializeReference]private bool Grounded;
@@ -67,7 +64,7 @@ public class PlayerMovementComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ControlDotRemap = Mathf.Round(ControlDot) * playerMovement.SidewaysMapping.Evaluate(Mathf.Abs(ControlDot));
+       ControlDotRemap = Mathf.Round(ControlDot) * playerMovement.SidewaysMapping.Evaluate(Mathf.Abs(ControlDot));
 
         float Speed = playerMovement.Speed;
         float AngularSpeed = playerMovement.AngularSpeed;
@@ -85,11 +82,11 @@ public class PlayerMovementComponent : MonoBehaviour
             StartCoroutine(GroundCheck());
             if (rb.velocity.y > 0)
             {
-                rb.velocity += new Vector2(0, 1) * Physics2D.gravity.y * (playerMovement.jumpGraviyUp - 1) * Time.deltaTime;
+                rb.velocity += new Vector2(0, 1) * Physics2D.gravity.y * (playerMovement.jumpGraviyUp - 1) ;
             }
             if (rb.velocity.y < 0)
             {
-                rb.velocity += new Vector2(0, 1) * Physics2D.gravity.y * (playerMovement.jumpGravityDown - 1) * Time.deltaTime;
+                rb.velocity += new Vector2(0, 1) * Physics2D.gravity.y * (playerMovement.jumpGravityDown - 1) ;
             }
                 
         }
@@ -107,14 +104,14 @@ public class PlayerMovementComponent : MonoBehaviour
         {
             desiredUpVec = new Vector2(0, 1);
         }
-        transform.up = Vector2.Lerp(transform.up,desiredUpVec, RotationZeroSpeed * Time.deltaTime);
+        transform.up = Vector2.Lerp(transform.up,desiredUpVec, RotationZeroSpeed );
 
 
         ControlDot = Vector2.Dot(transform.right, inputx);
 
-        Acceleration = Mathf.Lerp(Acceleration, ControlDot, playerMovement.Acceleration * Time.deltaTime);
+        Acceleration = Mathf.Lerp(Acceleration, ControlDot, playerMovement.Acceleration );
 
-        MoveAndTurn(Acceleration, Speed, AngularSpeed);
+        MoveAndTurn(Acceleration, Speed, AngularSpeed); 
     }
 
     public void ParseMovement(InputAction.CallbackContext context)
@@ -126,17 +123,17 @@ public class PlayerMovementComponent : MonoBehaviour
     {
 
        
-            PlayerArt.transform.Rotate(0, 0, (-inputX * playerMovement.AngularSpeed * Time.deltaTime));
+            PlayerArt.transform.Rotate(0, 0, (-inputX * playerMovement.AngularSpeed));
 
             Vector2 forward = transform.right;
             Vector2 down = -transform.up;
             
-            rb.velocity += ((forward * Speed) * inputX) * Time.deltaTime;
+            rb.velocity += ((forward * Speed) * inputX) ;
             float playerdownnormal = Vector2.Dot(transform.up, inputx);
             if (Grounded)
             {
             
-            rb.velocity += (down  * Speed * Mathf.Abs( Mathf.Clamp(playerdownnormal,-1,0))) * Time.deltaTime;
+            rb.velocity += (down  * Speed * Mathf.Abs( Mathf.Clamp(playerdownnormal,-1,0))) ;
             }
     }
     

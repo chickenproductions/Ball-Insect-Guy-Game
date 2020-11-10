@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5418618110211657470}
   - component: {fileID: 765590439599331726}
   - component: {fileID: 8524622957321120147}
+  - component: {fileID: 765590439599331728}
   m_Layer: 0
   m_Name: EnemyMovementTest
   m_TagString: Untagged
@@ -74,7 +75,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -125,6 +126,18 @@ MonoBehaviour:
   TargetTemp: {fileID: 0}
   speed: 8
   nextpointDst: 3
+--- !u!114 &765590439599331728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822208705377563301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc29b7656ebe714392b4ccd5423fdf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6822208705696240732
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,4 +277,4 @@ MonoBehaviour:
   - {x: -0.5, y: 0.5032544, z: 0}
   m_ShapePathHash: 383351021
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8574
+  m_InstanceId: -6814

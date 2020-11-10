@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7ae7573e011044787c8b1bc0df21a5, type: 3}
   m_Name: PlayerMovement
   m_EditorClassIdentifier: 
-  Speed: 40.4
-  AngularSpeed: 360
+  Speed: 1.5
+  AngularSpeed: 10
   JumpHeight: 20
-  Acceleration: 4
-  JumpCheckDistance: 0.407
+  Acceleration: 0.3
+  JumpCheckDistance: 0.408
   jumpDelay: 0.05
-  jumpGraviyUp: 2
-  jumpGravityDown: 2.5
+  jumpGraviyUp: 1.02
+  jumpGravityDown: 1.08
   SidewaysMapping:
     serializedVersion: 2
     m_Curve:
