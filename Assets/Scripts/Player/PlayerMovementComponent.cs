@@ -25,8 +25,9 @@ public class PlayerMovementComponent : MonoBehaviour
     public bool leftCheck, rightCheck;
     
     RaycastHit2D LeftCheckCast;    
-    RaycastHit2D RightCheckCast;
-    RaycastHit2D BottomCheckCast;
+    // remove public variables later, using for test
+    public RaycastHit2D RightCheckCast;
+    public RaycastHit2D BottomCheckCast;
 
     float ControlDot;
     public float ControlDotRemap;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374436407999233355}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,15 +42,17 @@ GameObject:
   - component: {fileID: 1374436408680580201}
   - component: {fileID: 1374436408680580199}
   - component: {fileID: 1374436408680580200}
+  - component: {fileID: 1858966747}
   - component: {fileID: 2974018355230975}
   - component: {fileID: 5867075262130458212}
-  m_Layer: 0
+  - component: {fileID: 1858966752}
+  m_Layer: 10
   m_Name: CharacterRollTest
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 1549355076cd80f4bb5064acda99c22c, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1374436408680580201
 Transform:
   m_ObjectHideFlags: 0
@@ -79,7 +81,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -103,6 +105,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.95
+--- !u!114 &1858966747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374436408680580202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c83b53ca5aa5264ea3cf5b6c195e790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthData: {fileID: 11400000, guid: 4c4aa23ceb4c16945a543e5c9b97eb8e, type: 2}
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2974018355230975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,10 +196,6 @@ MonoBehaviour:
     m_ActionName: Player/Look[/DualShock4GamepadHID/rightStick,/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: fe3209fa-86e7-41c2-a2aa-dea33f01f871
-    m_ActionName: Player/Fire[/DualShock4GamepadHID/rightTrigger,/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 57bd6c83-a549-43de-a53b-09d469f11cf3
     m_ActionName: Player/Jump[/Keyboard/space,/Keyboard/w]
   - m_PersistentCalls:
@@ -221,11 +238,43 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 97836ccf-7615-46a4-9e5c-bba2801def39
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1858966752}
+        m_TargetAssemblyTypeName: TestDamageAbility, Assembly-CSharp
+        m_MethodName: ATKCallback
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 0ea14b5e-32c9-4bbb-9e1d-ddbe0df29a7d
+    m_ActionName: Player/Ability1[/DualShock4GamepadHID/buttonEast,/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1858966752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374436408680580202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87be1eb19f821e147bb6a6bb5cd3f925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDamageTest: 1
+  AttackMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &6203404240009744357
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +286,7 @@ GameObject:
   - component: {fileID: 1766810632002694257}
   - component: {fileID: 5209132858012529079}
   - component: {fileID: 638163988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BallGuyTestAsset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,4 +443,4 @@ MonoBehaviour:
   - {x: -0.520057, y: -0.1534, z: 0}
   m_ShapePathHash: -691674195
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32678
+  m_InstanceId: -1206

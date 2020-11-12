@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviorManager : MonoBehaviour
+public class BehaviorTest : Behavior
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        interval = GenericInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    new void EveryInterval()
+    {
+        Debug.Log("DoesItWork");
     }
 }

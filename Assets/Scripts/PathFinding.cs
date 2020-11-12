@@ -10,7 +10,7 @@ public class PathFinding : MonoBehaviour
     public Transform TargetTemp;
     public float speed;
     public float nextpointDst;
-    [NonSerialized]public Vector2 movementspeed;
+    public Vector2 movementspeed;
     Path path;
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
@@ -59,9 +59,9 @@ public class PathFinding : MonoBehaviour
         }
         
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        movementspeed = direction * speed * Time.deltaTime;
+        //settothisifneeded
+        movementspeed = direction;
         
-        rb.velocity += movementspeed;
         
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
