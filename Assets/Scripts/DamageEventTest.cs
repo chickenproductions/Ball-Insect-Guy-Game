@@ -6,6 +6,7 @@ using UnityEngine;
 public class DamageEventTest : MonoBehaviour
 {
     private Rigidbody2D rb;
+    Vector2 damageloc;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -14,13 +15,15 @@ public class DamageEventTest : MonoBehaviour
 
     public void DmgTest()
     {
+        damageloc = GameManger.gamemanager.Player.transform.position;
         Debug.Log("Damaged!");
-        rb.AddForce( new Vector2(-rb.velocity.x * 600, 300));
+        rb.AddForce( damageloc.normalized * 1200);
+
     }
     public void DeathTest()
     {
         Debug.Log("Killed!");
-        rb.AddForce(new Vector2(-rb.velocity.x * 800, 700));
+        rb.AddForce(damageloc.normalized * 900);
         rb.freezeRotation = false;
         StartCoroutine("Death");
     }

@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class EnemyBehaviorManager : MonoBehaviour
 {
     public BehaviorSettings settings;
-    public GameManger gamedata;
     public UnityEvent aiStop;
     public UnityEvent aiStart;
     bool start;
@@ -20,7 +19,7 @@ public class EnemyBehaviorManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        distance = Vector2.Distance(gamedata.Player.transform.position, transform.position);
+        distance = Vector2.Distance(GameManger.gamemanager.Player.transform.position, transform.position);
         if(distance <= settings.startDistance)
         {
             AiStart(start);

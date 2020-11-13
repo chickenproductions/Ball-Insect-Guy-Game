@@ -15,7 +15,7 @@ public class Health : MonoBehaviour,IDamage
         maxHealth = healthData.Health;
         currentHealth = maxHealth;
     }
-    public void DamageTo(int Damage)
+    public void DamageTo(int Damage, Vector2 location)
     {
         currentHealth -= Damage;
         onDamage.Invoke();

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TestBehaviorManagerSettings
   m_EditorClassIdentifier: 
   startDistance: 10
-  stoppingDistance: 2
+  stoppingDistance: 4

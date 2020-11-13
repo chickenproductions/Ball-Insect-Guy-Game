@@ -26,16 +26,17 @@ public class TestDamageAbility : MonoBehaviour,IDamage
     {
         Controls.Disable();
     }
-    public void DamageTo(int Damage)
+    public void DamageTo(int Damage, Vector2 loc)
     {
 
     }
     public void AtkTest(InputAction.CallbackContext context)
     {
+        Vector2 playerloc = transform.position;
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 1.5f,AttackMask);
         foreach(Collider2D target in hitTargets)
         {
-            target.GetComponent<IDamage>().DamageTo(AttackDamageTest);
+            target.GetComponent<IDamage>().DamageTo(AttackDamageTest,playerloc);
         }
     }
     private void OnDrawGizmos()

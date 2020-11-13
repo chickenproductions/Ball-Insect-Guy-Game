@@ -5,5 +5,5 @@ using UnityEngine;
 
     public interface IDamage
     {
-        void DamageTo(int damage);
+        void DamageTo(int damage, Vector2 Location);
     }

@@ -7,7 +7,6 @@ using System;
 
 public class PathFinding : MonoBehaviour
 {
-    public Transform TargetTemp;
     public float speed;
     public float nextpointDst;
     public Vector2 movementspeed;
@@ -29,7 +28,7 @@ public class PathFinding : MonoBehaviour
     void UpdatePath()
     {
         if(seeker.IsDone())
-        seeker.StartPath(rb.position, TargetTemp.position, OnPathComplete);
+        seeker.StartPath(rb.position, GameManger.gamemanager.Player.transform.position, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
